@@ -28,27 +28,23 @@
        }
       ol { 
       	list-style: none; 
-      	counter-reset: li;/*设置计数器，默认为0*/
+      	counter-reset: li;
       }
       li:nth-child(-n+3)::before {
-      	content: counter(li);  /*显示计数器的值*/
-      	counter-increment: li; /*增加计数器的值*/
+      	content: counter(li);  
+      	counter-increment: li;
       	color: red;      	
         display: inline-block; 
-        width: 2em;
-        margin-left: -2em;
-        margin-right: 1em;
-        text-align: right;
+        width: 1em;
+        margin-left: -1em;
     }
      li:nth-child(n+4)::before {
     	content: counter(li);  
       	counter-increment: li;
       	color: #000;      	
-        display: inline-block;
-        width: 2em; 
-        margin-left: -2em;
-        margin-right: 1em;
-        text-align: right;
+        display: inline-block; 
+        width: 1em;
+        margin-left: -1em;
     }
     
 	</style>

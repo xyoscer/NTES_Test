@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Table练习</title>
+	<style>
+	  * {
+	  	margin: 0;
+
+	  }
+       section {
+       	width: 700px;
+       	margin:10px auto;
+       }
+
+       table {
+       	 max-width: 100%;       
+       	 border-spacing: 0;
+         border-collapse: collapse;	 
+       	 line-height: 1.4;      	 
+       	 font-size: 14px;
+       }
+      
+       tr > th, td {
+       	padding: 10px;
+       	border-bottom: 1px solid #f3f3f3;
+       	border-right: 1px solid #f3f3f3;
+       	text-align: center;
+       }
+        
+       tbody > tr:hover {       
+       	background-color: #d0e9c6;
+
+       }
+       th {
+           background-color: #F7F7F7;      
+        
+        } 
+	</style>
+</head>
+<body>
+	<section>
+		<table>
+			<caption>运费详情</caption>
+		  <thead>
+		  <tr><th>区域</th><th>寄达地</th><th>首重(元/1000g)</th><th>续重(元/1000g)</th></tr>
+		  </thead>
+			<tbody>
+			<tr>
+				<th rowspan="2">一区</th>
+				<td>浙江、上海、江苏</td>
+				<td>6</td>
+				<td>1</td>
+			</tr>
+			<tr>
+			<td>江西、安徽</td><td>7</td><td>1</td>
+		   </tr>
+		   <tr>
+		   	 <th>二区</th>
+		   	 <td>吉林、黑龙江、云南</td>
+		   	 <td>10</td><td>6</td>
+		   </tr>
+		   <tr>
+		   	 <th>三区</th>
+		   	 <td>新疆、西藏</td>
+		   	 <td>15</td><td>10</td>
+		   </tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+</html>

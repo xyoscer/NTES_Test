@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>静态Tab选项卡练习</title>
+	<style>
+       * {
+       	 margin: 0;
+       	 padding: 0;
+       	 box-sizing: border-box;
+       }
+      .parent {
+      	width: 574px;
+      	margin: 10px auto;
+      	height: 200px;
+      	border: 1px solid #999;      	
+      	font: 14px "Microsoft YaHei";
+      }
+      .content {
+        padding: 20px;       
+      	background-color: #fff;
+      }
+      ul {
+      	height: 50px;      	
+      	background-color: #f1f1f1;      
+      	display: flex;
+      	
+      }
+      li {
+         height: 50px;
+         line-height: 50px; 
+         text-align: center;
+         border-bottom: 1px solid #cecece;
+         border-right: 1px solid #cecece;
+         flex: 1;        
+       
+      }
+      li, a {
+      	display: inline-block;     
+        text-decoration: none;
+        color: #000;
+
+      }
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<ul>
+			<li><a href="#">课程</a></li>
+			<li><a href="#">学习计划</a></li>
+			<li><a href="#">技能图谱</a></li>
+		</ul>
+		<div class="content"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>两列自适应布局</title>
+	<style>
+	   * {
+	   	margin :0;
+	   }
+      /*  .parent {
+       	display: flex;
+       
+       }
+       .side {
+       	width: 200px;
+       	height: 200px;
+       	background-color: #C00000;
+       	text-align: center;
+       	line-height: 200px;
+       	font-size: 18px;
+       	color: #fff;
+       
+       }
+       .main {
+       	flex:1;
+       	height: 200px;
+       	margin-left: 10px;
+       	background-color: #4F81BD;
+       	text-align: center;
+       	line-height: 200px;
+       	font-size: 18px;
+       	color: #fff;
+       
+       } */ 
+        /*使用float*/
+         .parent::after {
+       	content: "";
+       	display: block;
+       	clear: both;
+       }
+       .side {
+       	width: 200px;
+       	height: 200px;
+       	float: left;        	
+       	background-color: #C00000;
+       	text-align: center;
+       	line-height: 200px;
+       	font-size: 18px;
+       	color: #fff;
+       }
+       .main {
+      /*  	overflow: hidden;	 */
+       	height: 200px;
+       	margin-left: 210px;
+       	background-color: #4F81BD;
+       	text-align: center;
+       	line-height: 200px;
+       	font-size: 18px;
+       	color: #fff;
+       } 
+        /*position*/
+       /*  .side {
+       	width: 200px;
+       	height: 200px;
+       	position: absolute;       	
+       	background-color: #C00000;
+       	text-align: center;
+       	line-height: 200px;
+       	font-size: 18px;
+       	color: #fff;
+       }
+       .main {
+       	
+       	height: 200px;
+       	margin-left: 210px;
+       	background-color: #4F81BD;
+       	text-align: center;
+       	line-height: 200px;
+       	font-size: 18px;
+       	color: #fff;
+       } */
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="side">侧栏</div>
+		<div class="main">主栏</div>
+	</div>
+</body>
+</html>

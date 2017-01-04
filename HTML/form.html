@@ -7,7 +7,6 @@
 	form {
 	 width:600px;
 	 margin:20px auto;
-
     }
     label {
      width: 100px;
@@ -37,8 +36,6 @@
    #sel {
    	width: 30%;
    }
-  
-  
   .btn {
     display: inline-block;     
     margin-left: 20%;   
@@ -65,7 +62,6 @@
  .radio + label {
    position: relative;  
    cursor: pointer;
-   
  }
  /*接着在radio,checkbox的label前面添加框框*/
  .checkbox + label::before,
@@ -152,13 +148,10 @@
 		<div class="form-group">
 			<label>图像</label>
 			<input type="file" >
-			 
 		</div>
-		    
 		<div class="form-group">
 			<label>昵称</label>
 			<input type="text" class="form-control" autofocus="autofocus">
-			 
 		</div>
 		<div class="form-group">
 			<label>学历</label>
@@ -167,33 +160,29 @@
 				<option value="1">中专</option>
 				<option value="2">本科</option>      
 			</select>
-			
 		</div>
-		
 		<div class="form-group">
 			<label>性别</label>
 			<input type="radio" name="sex" checked id="boy" class="radio">
-      <label for="boy">男</label>
+            <label for="boy">男</label>
 			<input type="radio" name="sex" class="radio" id="girl">
-      <label for="girl">女</label>
-			
+           <label for="girl">女</label>
 		</div>
 		<div class="form-group">
 			<label>爱好</label>
 			<input type="checkbox" checked class="checkbox" id="move">
-      <label for="move">电影</label>
+            <label for="move">电影</label>
 			<input type="checkbox" class="checkbox" id="photo">
-      <label for="photo">摄影</label>	
+            <label for="photo">摄影</label>
 			<input type="checkbox" checked class="checkbox" id="music">
-      <label for="music">音乐</label> 
+            <label for="music">音乐</label>
 			<input type="checkbox" class="checkbox" id="read">
-      <label for="read">阅读</label>	
+            <label for="read">阅读</label>
 		</div>
 		<div class="form-group">
 			<label>签名</label>
 			<textarea name="" id="" cols="30" rows="3"class="form-control" ></textarea>			 
 		</div>
-		
 		<button  type="submit" class="btn" id="save">保存</button>
 	</form>
 </body>

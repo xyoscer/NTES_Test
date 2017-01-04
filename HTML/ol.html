@@ -12,7 +12,9 @@
 	  	margin-left: 30px;
 	  }
       section {
-       	width: 400px;
+       	  width: 400px;
+          margin: 20px auto;
+          font-weight: 700;
        }
        li {
        	padding: 20px;
@@ -21,7 +23,7 @@
        }
        li > a {       
        	text-decoration: none;       	
-       	color: #000;       	
+       	color: #564547;
        }
        a:hover {
        	 color:red;       	
@@ -30,6 +32,7 @@
       	list-style: none; 
       	counter-reset: li;/*设置计数器，默认为0*/
       }
+	  /*前三个列表的数字项设置为红色*/
       li:nth-child(-n+3)::before {
       	content: counter(li);  /*显示计数器的值*/
       	counter-increment: li; /*增加计数器的值*/
@@ -40,6 +43,7 @@
         margin-right: 1em;
         text-align: right;
     }
+     /*后面几个列表的数字项设置为黑色*/
      li:nth-child(n+4)::before {
     	content: counter(li);  
       	counter-increment: li;

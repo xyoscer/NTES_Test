@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>幻灯片样式</title>
+    <style>
+        body {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .slide {
+            width: 200px;
+            height: 100px;
+            margin: 0 auto;
+            position: relative;
+            background-color: #BDD7EE;
+        }
+        .pointer {
+            position: absolute; /*定位到右下角*/
+            right: 10px;
+            bottom: 10px;
+        }
+        .pointer i {
+            display: inline-block;/*有默认间距的问题，就在html中改变结构*/
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #000;
+            margin-right: 5px;/*间距为5px*/
+        }
+       .pointer .current {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+ <div class="slide">
+    <!-- 图片省略 -->
+    <!-- 以下是指示器 -->
+    <div class="pointer">
+        <i class="current"></i><i></i><i></i>
+    </div>
+ </div>
+</body>
+</html>

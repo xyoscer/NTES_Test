@@ -80,7 +80,7 @@ var str = 'ab4de8g4ijklmn1';
 
 // str = str.replace(/\d/g, func)
 // console.log(str);
-var arr = [2,4,2,3,4];
+var arr = [2,4,'2',3,4];
 var deleteRepeat = function(arr) {
    for (var i=0,len=arr.length;i<len;i++) {
        for (var j=i+1;j<len;j++) {
@@ -99,10 +99,34 @@ var deleteRepeat1 = function(arr) {
         }
     }
     return newArr;
-}
+};
 var deleteRepeat2 = function(arr) {
    // var newArr = [...new Set(arr)];
     var newArr = Array.from(new Set(arr));
     return newArr;
-}
-console.log(deleteRepeat2(arr));
+};
+var deleteRepeat3 = function(arr) {
+    var obj = {},newArr = [],tmpKey;
+    for(var i=0,len=arr.length;i<len;i++) {
+         tmpKey = typeof arr[i] + arr[i];
+        obj[tmpKey] = arr[i]; //将数组的值作为对象的属性与属性值
+    }
+    for(key in obj) {
+        newArr.push(obj[key]);
+    }
+    return newArr;
+
+};
+var deleteRepeat4= function (arr) {
+    var newArr = [];
+    var len = arr.length;
+    var tmp = new Map();
+    for(var i=0;i<len;i++) {
+        if(!tmp.get(arr[i])){
+            tmp.set(arr[i],1);
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr;
+};
+console.log(deleteRepeat3(arr));

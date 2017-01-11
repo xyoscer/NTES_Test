@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Object.prototype.create = function(obj) {
+        if (typeof obj != 'object') {//如果 obj 参数不是 nll 或一个对象值，则抛出一个 TypeError 异常。
+            throw TypeError('Object prototype may only be an Object or null');
+        }
+        if(Object.create) {
+            alert(222);
+            return Object.create(obj); //浏览器支持就直接返回
+        }else {
+            alert(11);
+            function Temp() {}//创建一个临时性的构造函数
+            Temp.prototype = obj; //传入的参数作为构造函数的原型
+            return new Temp(); //返回临时类型的一个新实例
+        }
+    };
+    var a = create({x: 1, y: 2});
+    alert(a.x);
+</script>
+</body>
+</html>

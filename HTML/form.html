@@ -1,189 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>表单html练习</title>
-	<style>
-	form {
-	 width:600px;
-	 margin:20px auto;
-    }
-    label {
-     width: 100px;
-     text-align: center;
-     margin-top: 5px;
-     display: inline-block;
-     vertical-align: top;
-   }
-   .form-group {
-      margin-bottom: 25px;
-   }
-   .form-control {   	  
-   	  width: 60%;
-   	  padding: 10px 10px;
-   	  font-size: 14px;
-   	  color: #555;   	  
-   	  border: 1px solid #ccc; 
-   	  border-radius: 6px;   	  
-   	  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .075),inset -1px -1px 1px rgba(0, 0, 0, .075);
-   	  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; 
-   }
-   .form-control:focus {
-       border-color: #fff;
-       outline: 0; 
-       box-shadow: inset 0 1px 1px #fff, 0 0 8px  #3590FD;
-   }
-   #sel {
-   	width: 30%;
-   }
-  .btn {
-    display: inline-block;     
-    margin-left: 20%;   
-    padding: 10px 40px;
-    font-size: 16px;
-    font-weight: 800;
-    line-height: 1.4;
-    text-align: center;    
-    letter-spacing: 5px;
-    cursor: pointer;    
-    border-radius: 4px;
-    border:1px solid #fff;
-    background-color: #D853B7;
-    color:#fff;
-}
-/*先是radio,checkbox默认框消失*/
- .checkbox,
- .radio {
-    position: absolute;
-    display: none;
- }
-/*然后使radio,checkbox的label做相对定位，为后面before,after元素能够正确放置*/
- .checkbox + label,
- .radio + label {
-   position: relative;  
-   cursor: pointer;
- }
- /*接着在radio,checkbox的label前面添加框框*/
- .checkbox + label::before,
- .radio + label::before {
-   position: absolute;
-   top: 2px;
-   left: 0;
-   display: inline-block;
-   width: 20px;
-   height: 20px;
-   content: '';
-   border: 1px solid #c0c0c0;
- }
- /*接着在radio,checkbox的label的after元素隐藏*/
- .checkbox + label::after,
- .radio + label::after {
-     position: absolute;
-     display: none;
-     content: '';
- }
- /*接着选中时radio,checkbox的label的after元素显示*/
- .checkbox:checked + label::after,
- .radio:checked + label::after {
-      display: block; 
- }
- .radio + label::before {
-  border-radius: 50%; 
- }
- .radio + label::after {
-   top: 9px;
-   left: 7px;
-   width: 8px;
-   height: 8px;
-   border-radius: 50%;
-   background: #3e97eb; 
- }
- .radio:checked + label::before {
-   border:1px solid #3e97eb;
- }
- .checkbox + label::before {
-  border-radius: 3px;
-}
+    <meta charset="UTF-8">
+    <title>表单html练习</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        form {
+            width: 600px;
+            margin: 20px auto;
+        }
 
-.checkbox + label::after {
-  top: 4px;
-  left: 7px;
-  box-sizing: border-box;
-  width: 6px; 
-  height: 12px;
-  transform: rotate(45deg);
-  border-width: 2px;
-  border-style: solid;
-  border-color: #fff;
-  border-top: 0;
-  border-left: 0; 
-}
+        label {
+            width: 100px;
+            text-align: center;
+            margin-top: 5px;
+            display: inline-block;
+            vertical-align: top;
+        }
 
-.checkbox:checked + label::before {
-  border: #3e97eb;
-  background: #3e97eb; 
-}
-.select:checked + option {
-  position: relative;
-}
-.select:checked + option::before {
-  position: absolute;
-  top: 1px;
-  left: 7px;
-  box-sizing: border-box;
-  width: 6px; 
-  height: 12px;
-  transform: rotate(45deg);
-  border-width: 2px;
-  border-style: solid;
-  border-color: #fff;
-  border-top: 0;
-  border-left: 0;
-}
-	</style>
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-control {
+            width: 60%;
+            padding: 10px 10px;
+            font-size: 14px;
+            color: #555;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .075), inset -1px -1px 1px rgba(0, 0, 0, .075);
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        }
+
+        .form-control:focus {
+            border-color: #fff;
+            outline: 0;
+            box-shadow: inset 0 1px 1px #fff, 0 0 8px #3590FD;
+        }
+
+        #sel {
+            width: 30%;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-left: 20%;
+            padding: 10px 40px;
+            font-size: 16px;
+            font-weight: 800;
+            line-height: 1.4;
+            text-align: center;
+            letter-spacing: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            border: 1px solid #fff;
+            background-color: #D853B7;
+            color: #fff;
+        }
+
+        /*先是radio,checkbox默认框消失*/
+        .checkbox,
+        .radio {
+            position: absolute;
+            display: none;
+        }
+
+        /*然后使radio,checkbox的label做相对定位，为后面before,after元素能够正确放置*/
+        .checkbox + label,
+        .radio + label {
+            position: relative;
+            cursor: pointer;
+        }
+
+        /*接着在radio,checkbox的label前面添加框框*/
+        .checkbox + label::before,
+        .radio + label::before {
+            position: absolute;
+            top: 2px;
+            left: 0;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            content: '';
+            border: 1px solid #c0c0c0;
+        }
+
+        /*接着在radio,checkbox的label的after元素隐藏*/
+        .checkbox + label::after,
+        .radio + label::after {
+            position: absolute;
+            display: none;
+            content: '';
+        }
+
+        /*接着选中时radio,checkbox的label的after元素显示*/
+        .checkbox:checked + label::after,
+        .radio:checked + label::after {
+            display: block;
+        }
+
+        .radio + label::before {
+            border-radius: 50%;
+        }
+
+        .radio + label::after {
+            top: 9px;
+            left: 7px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #3e97eb;
+        }
+
+        .radio:checked + label::before {
+            border: 1px solid #3e97eb;
+        }
+
+        .checkbox + label::before {
+            border-radius: 3px;
+        }
+
+        .checkbox + label::after {
+            top: 4px;
+            left: 7px;
+            box-sizing: border-box;
+            width: 6px;
+            height: 12px;
+            transform: rotate(45deg);
+            border-width: 2px;
+            border-style: solid;
+            border-color: #fff;
+            border-top: 0;
+            border-left: 0;
+        }
+
+        .checkbox:checked + label::before {
+            border: #3e97eb;
+            background: #3e97eb;
+        }
+
+        .select:checked + option {
+            position: relative;
+        }
+
+        .select:checked + option::before {
+            position: absolute;
+            top: 1px;
+            left: 7px;
+            box-sizing: border-box;
+            width: 6px;
+            height: 12px;
+            transform: rotate(45deg);
+            border-width: 2px;
+            border-style: solid;
+            border-color: #fff;
+            border-top: 0;
+            border-left: 0;
+        }
+    </style>
 
 </head>
 <body>
-	<form action="">
-		<div class="form-group">
-			<label>图像</label>
-			<input type="file" >
-		</div>
-		<div class="form-group">
-			<label>昵称</label>
-			<input type="text" class="form-control" autofocus="autofocus">
-		</div>
-		<div class="form-group">
-			<label>学历</label>
-			<select name="学历" class="form-control" id="sel" class="select">
-				<option value="0">大专</option>
-				<option value="1">中专</option>
-				<option value="2">本科</option>      
-			</select>
-		</div>
-		<div class="form-group">
-			<label>性别</label>
-			<input type="radio" name="sex" checked id="boy" class="radio">
-            <label for="boy">男</label>
-			<input type="radio" name="sex" class="radio" id="girl">
-           <label for="girl">女</label>
-		</div>
-		<div class="form-group">
-			<label>爱好</label>
-			<input type="checkbox" checked class="checkbox" id="move">
-            <label for="move">电影</label>
-			<input type="checkbox" class="checkbox" id="photo">
-            <label for="photo">摄影</label>
-			<input type="checkbox" checked class="checkbox" id="music">
-            <label for="music">音乐</label>
-			<input type="checkbox" class="checkbox" id="read">
-            <label for="read">阅读</label>
-		</div>
-		<div class="form-group">
-			<label>签名</label>
-			<textarea name="" id="" cols="30" rows="3"class="form-control" ></textarea>			 
-		</div>
-		<button  type="submit" class="btn" id="save">保存</button>
-	</form>
+<form action="">
+    <div class="form-group">
+        <label>图像</label>
+        <input type="file">
+    </div>
+    <div class="form-group">
+        <label>昵称</label>
+        <input type="text" class="form-control" autofocus="autofocus">
+    </div>
+    <div class="form-group">
+        <label>学历</label>
+        <select name="学历" class="form-control" id="sel" class="select">
+            <option value="0">大专</option>
+            <option value="1">中专</option>
+            <option value="2">本科</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>性别</label>
+        <input type="radio" name="sex" checked id="boy" class="radio">
+        <label for="boy">男</label>
+        <input type="radio" name="sex" class="radio" id="girl">
+        <label for="girl">女</label>
+    </div>
+    <div class="form-group">
+        <label>爱好</label>
+        <input type="checkbox" checked class="checkbox" id="move">
+        <label for="move">电影</label>
+        <input type="checkbox" class="checkbox" id="photo">
+        <label for="photo">摄影</label>
+        <input type="checkbox" checked class="checkbox" id="music">
+        <label for="music">音乐</label>
+        <input type="checkbox" class="checkbox" id="read">
+        <label for="read">阅读</label>
+    </div>
+    <div class="form-group">
+        <label>签名</label>
+        <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn" id="save">保存</button>
+</form>
 </body>
 </html>

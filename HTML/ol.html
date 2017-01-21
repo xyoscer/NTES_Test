@@ -1,73 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">	
-	<title>列表练习</title>
-	<style>
-	 * {
-	 	margin: 0;
-	  }
-	  h1 {
-	  	margin-bottom: 10px;
-	  	margin-left: 30px;
-	  }
-      section {
-       	  width: 400px;
-          margin: 20px auto;
-          font-weight: 700;
-       }
-       li {
-       	padding: 20px;
-       	border-top: 1px solid #eee;
-       	
-       }
-       li > a {       
-       	text-decoration: none;       	
-       	color: #564547;
-       }
-       a:hover {
-       	 color:red;       	
-       }
-      ol { 
-      	list-style: none; 
-      	counter-reset: li;/*设置计数器，默认为0*/
-      }
-	  /*前三个列表的数字项设置为红色*/
-      li:nth-child(-n+3)::before {
-      	content: counter(li);  /*显示计数器的值*/
-      	counter-increment: li; /*增加计数器的值*/
-      	color: red;      	
-        display: inline-block; 
-        width: 2em;
-        margin-left: -2em;
-        margin-right: 1em;
-        text-align: right;
-    }
-     /*后面几个列表的数字项设置为黑色*/
-     li:nth-child(n+4)::before {
-    	content: counter(li);  
-      	counter-increment: li;
-      	color: #000;      	
-        display: inline-block;
-        width: 2em; 
-        margin-left: -2em;
-        margin-right: 1em;
-        text-align: right;
-    }
-   
-	</style>
+    <meta charset="UTF-8">
+    <title>列表练习</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            margin-left: 30px;
+        }
+
+        section {
+            width: 400px;
+            margin: 20px auto;
+            font-weight: 700;
+        }
+
+        li {
+            padding: 20px;
+            border-top: 1px solid #eee;
+
+        }
+
+        li > a {
+            text-decoration: none;
+            color: #564547;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        ol {
+            list-style: none;
+            counter-reset: li; /*设置计数器，默认为0*/
+        }
+
+        /*前三个列表的数字项设置为红色*/
+        li:nth-child(-n+3)::before {
+            content: counter(li); /*显示计数器的值*/
+            counter-increment: li; /*增加计数器的值*/
+            color: red;
+            display: inline-block;
+            width: 2em;
+            margin-left: -2em;
+            margin-right: 1em;
+            text-align: right;
+        }
+
+        /*后面几个列表的数字项设置为黑色*/
+        li:nth-child(n+4)::before {
+            content: counter(li);
+            counter-increment: li;
+            color: #000;
+            display: inline-block;
+            width: 2em;
+            margin-left: -2em;
+            margin-right: 1em;
+            text-align: right;
+        }
+
+    </style>
 </head>
 <body>
 <section>
-	<h1>图书畅销榜</h1>
-     <ol>
-     	<li><a href="#" title = "当我足够好，才会遇见你">当我足够好，才会遇见你</a></li>
-     	<li><a href="#" title = "皮囊">皮囊</a></li>
-     	<li><a href="#" title = "李光耀论中国与世界">李光耀论中国与世界</a></li>
-     	<li><a href="#" title = "乖，摸摸头">乖，摸摸头</a></li>
-     	<li><a href="#" title = "男女内参">男女内参</a></li>
-     	
-     </ol>
+    <h1>图书畅销榜</h1>
+    <ol>
+        <li><a href="#" title="当我足够好，才会遇见你">当我足够好，才会遇见你</a></li>
+        <li><a href="#" title="皮囊">皮囊</a></li>
+        <li><a href="#" title="李光耀论中国与世界">李光耀论中国与世界</a></li>
+        <li><a href="#" title="乖，摸摸头">乖，摸摸头</a></li>
+        <li><a href="#" title="男女内参">男女内参</a></li>
+
+    </ol>
 
 </section>
 </body>

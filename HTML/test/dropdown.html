@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            font: 12px "宋体";
+            color:#000;
+        }
+        ul {
+            list-style: none;
+        }
+        .dropdown-btn {
+            width:50px;
+            height:28px;
+            border:1px solid #ddd;
+            text-align: center;
+            background-color: #eee;
+            box-sizing: content-box;
+        }
+       .dropdown-menu {
+           width:100px;
+           margin-top: 1px;
+           text-align: center;
+       }
+       .dropdown-menu > li {
+           height:30px;
+           line-height:30px;
+           background-color: #fff;
+           border:1px solid #ddd;
+        }
+        .dropdown-menu > li > a {
+            display: block;
+            color: #000;
+            padding:0 10px;
+            text-decoration: none;
+        }
+       .dropdown-menu li > a:hover {
+           background-color: #ddd;
+       }
+
+    </style>
+</head>
+<body>
+   <div class="container">
+       <button class="dropdown-btn">按钮</button>
+               <ul class="dropdown-menu">
+                   <li><a href="#">下拉菜单项</a></li>
+                   <li><a href="#">下拉菜单项</a></li>
+                   <li><a href="#">下拉菜单项</a></li>
+                   <li><a href="#">下拉菜单项</a></li>
+               </ul>
+   </div>
+</body>
+</html>

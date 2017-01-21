@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iframe实现表单无刷新提交</title>
+</head>
+<body>
+<iframe name="formsubmit" id="myFrame" style="display: none"></iframe>
+<!-- 将form表单提交的窗口指向隐藏的ifrmae,并通过ifrmae提交数据。 -->
+<form action="tsconfig.json" method="POST" name="forphp" target="formsubmit" enctype/encoding="">
+    <p>
+        <label for="uname">用户名：</label>
+        <input type="text" name="uname" id="uname"/>
+    </p>
+    <p>
+        <label for="pwd">密 码：</label>
+        <input type="password" name="pwd" id="pwd"/>
+    </p>
+    <p>
+        <label for="file">上传文件：</label>
+        <input type="file" name="file" id="file"/>
+    </p>
+    <p>
+        <input type="submit" value="登录" id="sub"/>
+    </p>
+</form>
+<script>
+
+    var frame = document.getElementById('myFrame');
+
+    function callback(a,b){
+        var uname = document.getElementById('uname').value;
+        var pwd = document.getElementById('pwd').value;
+        if(uname == a && pwd == b ){
+            alert('登录成功');
+            form.reset();
+        }
+        else{
+            alert('账号密码错误');
+        }
+    }
+    frame.addEventListener('load',function(event){
+                try{
+                    var result = JSON.parse(frame.contentWindow.document.body.textContent);
+                    // 识别登录结果
+                    if (result.code === 200){
+                        callback(result.success.uname,result.success.psw);
+                    }
+                }catch(er){
+                    //ignore
+                }
+            }
+    );
+</script>
+</body>
+</html>
+

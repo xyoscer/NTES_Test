@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网易新闻</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body,html {
+            margin:0;
+            width: 100%;
+        }
+        .container::after {
+            content:".";
+            display: block;
+            clear: both;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+
+        }
+        .container {
+            *zoom:1;
+        }
+        img {
+            float:left;
+            width: 100px;
+        }
+        .content {
+            float:left;
+            width:10%;
+            height:120px;
+            margin-left: 15px;
+            line-height: 25px;
+            font-family: "SimSun";
+            overflow: hidden;
+
+        }
+        h2 {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            font-weight: bold;
+            font-size: 16px;
+            color: #000;
+        }
+        p {
+            font-size: 14px;
+            color: #666;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+       <img src="http://163.com/x.jpg" alt="新闻图片" width="100px" height="100px" >
+      <div class="content">
+          <h2>标题文字标题文字标题文字标题文字</h2>
+          <p>段落文字段落文字段落文字段落文字段落文字段落文字
+              段落文字段落文字段落文字段落文字段落文字段落文字</p>
+      </div>
+   </div>
+</body>
+</html>

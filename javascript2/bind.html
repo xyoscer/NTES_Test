@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bind的兼容性实现</title>
+</head>
+<body>
+<script>
+    /**bind的兼容性实现 */
+    Function.prototype.bindFun = function(thisObj) {
+        // 获取函数本身,调用bind的函数对象
+        var _func = this;
+        var _params = Array.prototype.slice.call(arguments, 1);
+
+        if (!Function.prototype.bind) {
+               alert("不支持bind方法");
+                if (typeof this !== "function") {
+                    throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+                }
+               // 获取函数调用者（bind方法的第一个参数）
+                var  _this = thisObj;
+                // 返回一个函数，外部变量通过持有这个函数引用保存_func,_this,_params这三个闭包变量,并随时执行函数以调用下面语句。
+                return function(){
+                    var _localParams = Array.prototype.slice.call(arguments);
+                    _params = _params.concat(_localParams);
+                    _func.apply(_this, _params); // 实现函数调用
+
+                };
+
+        }
+        else {
+            alert("支持bind方法");
+            console.log(_func);
+            return _func.bind(thisObj,..._params);
+        }
+
+    };
+
+    function move(x, y) {
+        this.x += x;
+        this.y += y;
+        return this;
+    }
+    var point = {x:1, y:2};
+    var pointmove = move.bindFun(point, 2, 2);
+    console.log(pointmove);
+    console.log(pointmove()); // undefined
+
+</script>
+</body>
+</html>

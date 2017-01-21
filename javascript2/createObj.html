@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../../BaiduTask/task13/task13.css">
 </head>
 <body>
 <script>
-    Object.prototype.create = function(obj) {
+   var createObj = function(obj) {
         if (typeof obj != 'object') {//如果 obj 参数不是 nll 或一个对象值，则抛出一个 TypeError 异常。
             throw TypeError('Object prototype may only be an Object or null');
         }
@@ -20,7 +21,7 @@
             return new Temp(); //返回临时类型的一个新实例
         }
     };
-    var a = create({x: 1, y: 2});
+    var a = createObj({x: 1, y: 2});
     alert(a.x);
 </script>
 </body>

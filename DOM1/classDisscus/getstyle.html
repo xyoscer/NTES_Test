@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>兼容getComputedStyle</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border:1px solid #eee;
+            color: #ffff00;
+        }
+    </style>
+    <link rel="stylesheet" href="../../../BaiduTask/task13/task13.css">
+    <script src="../../../../gitHub备份/XD2HandBookStore/js/signup.js"></script>
+</head>
+<body>
+  <div class="box">
+      测试获取样式
+  </div>
+  <script>
+      window.onload = function() {
+          var box = document.getElementsByTagName("div")[0];
+          var style = getComputedStyle(box,'color');
+          console.log(style);
+          function getComputedStyle(element,classProName) {
+              if (window.getComputedStyle) {
+                  alert("非IE下执行");
+                  return window.getComputedStyle(element)[classProName];
+              } else {
+                  alert("IE下执行");
+                  return element.currentStyle[classProName];
+              }
+          }
+      }
+  </script>
+</body>
+</html>

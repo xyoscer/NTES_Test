@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录框实现</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #loginForm {
+            width: 500px;
+            margin: 10px auto;
+        }
+
+        legend {
+            background: #000;
+            width: 100%;
+            color: #fff;
+            height: 50px;
+            line-height: 50px;
+            font-size: 18px;
+            text-indent: 15px;
+            word-spacing: 10px;
+
+        }
+
+        div {
+            margin-top: 20px;
+        }
+
+        label {
+            display: inline-block;
+            text-align: right;
+            width: 30%;
+        }
+
+        button {
+            width: 80%;
+            margin: 10px auto;
+            display: block;
+            background: #3590FD;
+            padding: 10px 10px;
+            color: #fff;
+            font-size: 18px;
+            border-color: transparent;
+        }
+
+        input {
+            padding: 6px 8px;
+            width: 60%;
+        }
+
+        .invalid {
+            border-color: red;
+            color: red;
+        }
+
+        .success {
+            border: 1px solid #90ee90;
+        }
+
+        .tips {
+            font-size: 10px;
+            margin-left: 40%;
+            color: red;
+        }
+
+        .disabled {
+            background: #ddd;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+<form action="/login" id="loginForm">
+    <legend>手机号码登录</legend>
+
+    <fieldset>
+        <div>
+            <label for="mobile">手机号：</label>
+            <input type="text" id="mobile" name="mobile" required>
+            <p></p>
+        </div>
+        <div>
+            <label for="password">密 码：</label>
+            <input type="password" id="password" name="password">
+            <p></p>
+        </div>
+        <div>
+            <button id="login">登 录</button>
+        </div>
+    </fieldset>
+</form>
+<script>
+    var form = document.getElementById('loginForm');
+    var inputs = document.getElementsByTagName('input');
+    var login = document.getElementById('login');
+    var flag = false;
+    //给每个input添加blur,focus事件
+    [].forEach.call(inputs, function (ele) {
+        var id = ele.getAttribute('id');
+        addHander(ele,"blur",function() {
+            regValue(ele,id);
+        });
+        addHander(ele,"focus",function(){focusStyle(ele);});
+
+    });
+    //失去焦点时进行表单验证
+    function regValue(node, id) {
+        var inputValue = node.value.trim();
+        switch (id) {
+            case "mobile":
+                flag = /^[1][0-9]{10}$/.test(inputValue);
+                console.log(flag);
+                break;
+            case "password":
+                flag = /^\S{6,11}$/.test(inputValue);
+                console.log(flag);
+                break;
+        }
+        if (flag) {
+            node.classList.add('success');
+        } else {
+            showMessage(node, id);
+        }
+    }
+    //获得焦点时，表单的样式
+    function focusStyle(node) {
+        node.classList.remove('invalid');
+        node.nextElementSibling.classList.remove('tips');
+        node.nextElementSibling.innerHTML = '';
+
+    }
+    //登录按钮注册点击事件
+    addHander(login,"click",doDeal);
+    //login.addEventListener("click", doDeal, false);
+    function doDeal(event) {
+        var event = window.event || event;
+        if (flag) {
+            console.log("表单验证通过");
+            disabledSubmit(true);
+            form.submit();
+        }
+        else {
+            alert('表单信息有误');
+            preventDefault(event);
+        }
+    }
+    //登录按钮是否禁用
+    function disabledSubmit(disabled) {
+        var method = !disabled ? 'remove' : 'add';
+        login.classList[method]('disabled');
+    }
+    //表单验证失败，显示提示信息
+    function showMessage(node, id) {
+        var focusMsg = {
+            "mobile": '必填，手机号码为1起始的11位数字',
+            password: "密码为6-16位字符"
+        };
+        node.classList.add('invalid');
+        node.nextElementSibling.classList.add('tips');
+        node.nextElementSibling.innerHTML = focusMsg[id];
+    }
+   //事件兼容函数
+    function addHander(element,type,handle) {
+        if(element.addEventListener) {
+            element.addEventListener(type,handle,false);
+        }else if(element.attachEvent) {
+             element.attachEvent("on"+type,handle);
+        }else {
+            element['on'+type] = handle;
+        }
+    }
+    function preventDefault(event) {
+        if(event.preventDefault){
+            event.preventDefault();
+        }else {
+            event.returnValue = false;
+        }
+    }
+</script>
+</body>
+</html>

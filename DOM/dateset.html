@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现dataset的兼容</title>
+</head>
+<body>
+<ul>
+    <li data-id="1" data-account-name="wwq"
+        data-name="魏文庆" data-email="wwq123@163.com"
+        data-mobile="13524543878" id="item1">wwq</li>
+    <li data-id="2" data-account-name="cjf"
+        data-name="蔡剑飞" data-email="cjf123@163.com"
+        data-mobile="13968789868">cjf</li>
+</ul>
+  <button id="btn">获取dateset属性值</button>
+</body>
+<script>
+   var lis = document.getElementsByTagName('li')[0];
+     console.log(lis.attributes);
+   console.log(lis.attributes[0].name.match(/^data-(.+)/)[]);
+   console.log(lis.attributes[0].value);
+   console.log(lis.attributes[lis.attributes.length-1].name);
+    //获取自定义属性 兼容方法
+    /*function getDataset(element){
+        if(element.dataset){
+            return element.dataset;
+        }else {
+            element.dataset = {};
+            var attrs = element.attributes;
+            for( var i=0;i<attrs.length;i++ ){
+                if(/^data-/.test(attrs[i].name)){
+                    var key = attrs[i].name.match(/^data-(.+)/)[1];
+                    var value = attrs[i].value;
+
+                    key = key.replace(/-\w/g,function(match){
+                        return match.substring(1).toUpperCase();
+                    });
+
+                    element.dataset[key] = value;
+                }
+            }
+            return element.dataset;
+        }
+    }
+
+    var lis = document.getElementsByTagName('li');
+    for(var i = 0, li;li = lis[i]; i++){
+        li.onmouseenter = function(event){
+            event = event || window.event;
+            var user = event.target|| event.srcElement;
+            //var data = user.dataset;
+            var data = getDataset(user);
+
+            $('accountName').innerText = data.accountName;
+            $('name').innerText = data.name;
+            $('email').innerText = data.email;
+            $('mobile').innerText = data.mobile;
+
+            $('card').style.display = 'block';
+        };
+
+        li.onmouseleave = function(event){
+            $('card').style.display = 'none';
+        };
+
+    }*/
+</script>
+</html>

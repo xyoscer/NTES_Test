@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../../FE练习/网易练习/cookie/getCookies.js"></script>
+</head>
+<body>
+<div id="example">
+    <p id="p1" class="aaa bbb">111</p>
+    <p id="p2" class="aaa ccc">222</p>
+    <p id="p3" class="bbb ccc">333</p>
+</div>
+<script>
+    function getElementsByClassName(element, names) {
+        if (element.getElementsByClassName) {
+            return element.getElementsByClassName(names); //浏览器兼容getClassNames()
+        } else { //否则
+            var elements = element.getElementsByTagName('*'); //获得给定元素对象下的所有标签
+            var result = [];
+            var classNameStr;
+            var names = names.split(' ');//获得传入的类名字符串数组，空格隔开多个类名
+            for(var i=0;i<elements.length;i++){ //对每一个标签获得它自身的className的值
+                classNameStr = ' '+elements[i].className+' ';
+                flag = true;
+                for (var j = 0, name; name = names[j]; j++) { //判断元素的className的值与传入的类名是否一致
+                    if (classNameStr.indexOf(' ' + name + '') == -1) {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag) {
+                    result.push(elements[i]);//如果一致的话，就把这个元素对象放入结果数组中
+                }
+            }
+            return result;
+        }
+    }
+    var example = document.getElementById('example');
+    console.log(getElementsByClassName(example, "aaa"));
+    console.log(getElementsByClassName(example, "bbb ccc"));
+    console.log(getElementsByClassName(example, "ccc bbb"));
+</script>
+</body>
+</html>

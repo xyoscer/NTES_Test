@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全等四宫格实现</title>
+    <!--一个未知宽高的容器，要被均分为四个相同大小格子（即四个容器），
+    且格子间有10px间距（即十字型空隙），有哪些方法可以解决呢？-->
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+        .column {
+            flex-basic:100%;
+            display: flex;
+            margin:5px 0;
+
+        }
+        .item {
+            text-align:center;
+            flex:1;
+            margin:0 5px;
+            background-color:#00dcff;
+            border:1px solid #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="contanier">
+        <div class="column">
+        <span class="item">1</span>
+        <span class="item">2</span>
+            </div>
+        <div class="column">
+        <span class="item">3</span>
+        <span class="item">4</span>
+        </div>
+    </div>
+</body>
+</html>

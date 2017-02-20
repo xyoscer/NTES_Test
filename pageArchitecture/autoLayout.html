@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自适应布局</title>
+    <!--一个不定宽度的容器被分为左中右三列，左右两列定宽100px，
+    中间列自适应剩余宽度，且三列之间间距为10px，效果如下：-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /*使用flex实现*/
+        /*.container {
+            border:1px solid #ccc;
+            display: flex;
+            height:100px;
+        }
+
+         .left,.right {
+            width:100px;
+             height:100px;
+            background-color: #00FF7B;
+        }
+        .center {
+            flex:1;
+            height:100px;
+            margin:0 10px;
+            background-color:#00dcff;
+        }*/
+
+    </style>
+</head>
+<body>
+   <div class="container">
+       <div class="left">左边定宽</div>
+       <div class="center">中间自适应</div>
+       <div class="right">右边定宽</div>
+   </div>
+</body>
+</html>

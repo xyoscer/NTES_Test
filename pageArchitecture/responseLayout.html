@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>实现响应式布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .parent {
+            width: 960px;
+            margin: 0 auto;
+            height: 500px;
+            background-color: #ddd;
+        }
+        .side {
+            width: 300px;
+            float:left;
+            background-color: #00E6FF;
+            height: 500px;
+        }
+        .main {
+            width: 650px;
+            float:left;
+            margin-left: 10px;
+            background-color: #D853B7;
+            height: 500px;
+        }
+        @media screen and (min-width:400px) and(max-width:100px) {
+            .parent {
+                width: auto;
+            }
+        }
+        @media screen and (max-width:400px){
+            .parent {
+                width: 100%;
+            }
+            .side {
+                float: none;
+                width: 100%;
+                height:200px;
+                margin-bottom:10px;
+            }
+            .main {
+                width: 100%;
+                height: 300px;
+                margin-left:0
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <div class="side"></div>
+    <div class="main"></div>
+</div>
+</body>
+</html>
